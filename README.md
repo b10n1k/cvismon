@@ -1,11 +1,12 @@
 # cvismon
-container graph on  terminal
-=======
-# docker
-# "GraphDriver": {
-#             "Data": null,
-#             "Name": "btrfs"
-#         }   show directory
-# images: /var/lib/docker/image/btrfs/repositories.json 
-# grep "rootfs":{"type":"layers","diff_ids":["sha256:6a6da42005cf380fde622916e6829b70728207febe7af8331104e11036ae3f01"]}} from /var/lib/docker/image/btrfs/imagedb/content/sha256/28ff6fac4f1240bcb086b95e2bbd437fd7c3871be366601018abc8292699cc3f where "Image":"sha256:0182dffa8260096f9b7e8a26624e7625433c6f5dd2ae6c4e21c3762d7fdba31e"
-# size: /var/lib/docker/image/btrfs/layerdb/sha256/6a6da42005cf380fde622916e6829b70728207febe7af8331104e11036ae3f01/size
+
+cvismo provides a terminal graph of the container images in the system.
+For Docker the daemon does not even need to run as it retrieves the info from the git tree in filesystem
+
+For instance, */var/lib/docker/image/btrfs/repositories.json* is the default location where the existing images are located, when the btrfs is used. From there it will match the hash256 with the one in */var/lib/docker/image/btrfs/imagedb/content/sha256/* to grub the value of *diff_ids*, which in turn can be found in */var/lib/docker/image/btrfs/layerdb/sha256/*. This should include the **size** file. 
+
+## Configuration
+TBD
+
+## Usage
+Need to run as root
